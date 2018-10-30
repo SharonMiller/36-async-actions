@@ -4,11 +4,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ListForm from '../listform'
 import * as util from '../../lib/util.js'
-import * listActions from '../../action/list-actions'
+import * as listActions from '../../action/list-actions'
 
 class Dashboard extends React.Component {
 
   componentDidMount() {
+    //add local storage to this area if this props &&
+    console.log('didMount');
     this.props.listsFetch();
   }
 
@@ -29,7 +31,7 @@ class Dashboard extends React.Component {
               delete
             </button>
           </div>
-        )};
+        )}
 
       </div>
     )

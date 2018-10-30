@@ -9,8 +9,10 @@ let validateList = (payload) => {
 };
 
 
-export defalt(state = [], action) => {
+export default (state = [], action) => {
   let { type, payload } = action;
+  //console.log(type);
+  console.log(action);
   switch (type) {
     case 'LIST_SET':
       return payload;
@@ -23,7 +25,7 @@ export defalt(state = [], action) => {
         item._id === payload._id ? payload : item);
 
     case 'LIST_DELETE':
-      return state.filter(item => item._id !== payload_id);
+      return state.filter(item => item._id !== payload._id);
 
     default:
       return state;
