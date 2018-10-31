@@ -1,14 +1,14 @@
 'use strict';
 
-const categoryValidator = store => next => action => {
-  const isCategory = action.type && action.type.startsWith('CATEGORY');
+const listValidator = store => next => action => {
+  const isList = action.type;
 
-  if (isCategory) {
+  if (isList) {
     try {
-      const category = action.payload;
-      let notValid = !category.title || !category.budget;
+      const list = action.payload;
+      let notValid = !list.title
       if (notValid) {
-        throw new Error('VALIDATION ERROR: category must include a name and budget')
+        throw new Error('VALIDATION ERROR: list must include a name')
       }
 
       return next(action);
@@ -21,4 +21,4 @@ const categoryValidator = store => next => action => {
   };
 };
 
-export default categoryValidator;
+export default listValidator;
