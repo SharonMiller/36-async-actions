@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ListForm from '../listform'
+import ListItem from '../ListItem/'
 import * as util from '../../lib/util.js'
 import * as listActions from '../../action/list-actions'
 
@@ -22,16 +23,18 @@ class Dashboard extends React.Component {
           buttonText='create list'
           onComplete={this.props.listCreate}
         />
-
-        {this.props.lists.map(list =>
-          <div key={list._id}>
-            {list.title}
-            <button
-              onClick={() => this.props.listDelete(list)}>
-              delete
-            </button>
-          </div>
-        )}
+        <ul>
+          {this.props.lists.map(list =>
+            <li key={list._id}>
+              <ListItem
+                title={list.title}
+                listDelete={this.props.listDelete}
+                list={list}
+                listUpdate={this.props.listUpdate}
+              ></ListItem>
+            </li>
+          )}
+        </ul>
 
       </div>
     )
@@ -42,6 +45,8 @@ let mapStateToProps = (state) => ({ lists: state.lists });
 let mapDispatchToProps = (dispatch) => ({
   listCreate: (list) => dispatch(listActions.listCreateRequest(list)),
   listDelete: (list) => dispatch(listActions.listDeleteRequest(list)),
+  listUpdate: (list) => dispatch(listActions.listUpdateRequest(list)),
+
   listsFetch: () => dispatch(listActions.listsFetchRequest()),
 });
 

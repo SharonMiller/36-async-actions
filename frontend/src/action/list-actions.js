@@ -39,8 +39,19 @@ export const listCreateRequest = list => dispatch => {
     .catch(console.error);
 };
 
+export const listUpdateRequest = list => dispatch => {
+  console.log('LIST ID FOR UPDATE', list._id)
+  return superagent.put(`${__API_URL__}/api/lists/${list._id}`)
+    .send(list)
+    .then(res => {
+      dispatch(listUpdate(res.body));
+      return res;
+    })
+    .catch(console.error);
+}
+
 export const listDeleteRequest = list => dispatch => {
-  console.log('LISTID FOR DELETE', list._id)
+  console.log('LIST ID FOR DELETE', list._id)
   return superagent.delete(`${__API_URL__}/api/lists/${list._id}`)
     .then(res => {
       dispatch(listDelete(list));

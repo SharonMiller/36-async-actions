@@ -6,28 +6,26 @@ import * as util from '../../lib/util.js'
 class ListForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.list);
     this.state = props.list ? props.list : { title: '' };
+    // this.state = {
+    //   title: props.list ? props.list.title : '',
+    //   id: props.newItem ? props.newItem._id : '',
+    // };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    if (props.list)
-      this.setState(props.list);
-  }
+  // componentWillReceiveProps(props) {
+  //   if (props.list)
+  //     this.setState(props.list);
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
-    let { onComplete } = this.props;
-    let result = onComplete(this.state);
-    if (result instanceof Promise) {
-      result.then(() => this.setState({ error: null }))
-        .catch(error => {
-          util.log('ListForm Error:', error);
-          this.setState({ error });
-        });
-    }
+    this.props.onComplete(Object.assign({}, this.state))
+    if (this.props.toggle) this.props.toggle();
   }
 
   handleChange(e) {
@@ -46,9 +44,10 @@ class ListForm extends React.Component {
         <input
           name='title'
           type='text'
-          placeholder='title'
+          placeholder='item name'
           value={this.state.title}
           onChange={this.handleChange}
+
         />
 
         <button type='submit'> {this.props.buttonText} </button>
