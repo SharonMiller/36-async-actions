@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = Promise;
 mongoose.connect(process.env.MONGODB_URI)
 
+
 //    * create app
 const app = express()
 
@@ -33,34 +34,35 @@ app.use(require('./error-middleware.js'))
 const server = module.exports = {};
 server.isOn = false;
 server.start = () => {
+  console.log('ENV MONGO!!!', process.env.MONGODB_URI);
   // In case we are running in testing env
   // if(!process.env.PORT){
   //   require('dotenv').config();
   // }
 
   return new Promise((resolve, reject) => {
-    if(!server.isOn){
+    if (!server.isOn) {
       server.http = app.listen(process.env.PORT, () => {
         server.isOn = true;
         console.log('server up', process.env.PORT)
         resolve();
       })
-      return 
+      return
     }
     reject(new Error('server already running'))
   })
 }
 
 server.stop = () => {
-   return new Promise((resolve, reject) => {
-     if(server.http && server.isOn){
-       return server.http.close(() => {
-         server.isOn = false
-         console.log('server down')
-         resolve()
-       })
-     }
-     reject(new Error('ther server is not running'))
-   })
+  return new Promise((resolve, reject) => {
+    if (server.http && server.isOn) {
+      return server.http.close(() => {
+        server.isOn = false
+        console.log('server down')
+        resolve()
+      })
+    }
+    reject(new Error('ther server is not running'))
+  })
 }
 
