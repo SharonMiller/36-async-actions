@@ -18,16 +18,16 @@ export default (state = [], action) => {
       return payload;
 
     case 'LIST_CREATE':
-      // validateList(payload);
+      validateList(payload);
       return [payload, ...state];
 
     case 'LIST_UPDATE':
-      // validateList(payload);
+      validateList(payload);
       return state.map(item =>
         item._id === payload._id ? payload : item);
 
     case 'LIST_DELETE':
-      // validateList(payload);
+      validateList(payload);
       return state.filter(item => item._id !== payload._id);
 
     default:
