@@ -6,9 +6,11 @@ const listRouter = module.exports = new require('express').Router()
 
 // app modules
 const List = require('../model/list.js')
+const auth = require('../src/auth/lib/middleware')
+
 
 // module logic
-listRouter.post('/api/lists', jsonParser, (req, res, next) => {
+listRouter.post('/api/lists', auth, jsonParser, (req, res, next) => {
   console.log('hit POST /api/lists')
   console.log(req.body);
   new List(req.body)
