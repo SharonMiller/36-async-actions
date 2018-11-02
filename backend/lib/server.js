@@ -17,11 +17,16 @@ const app = express()
 
 //    * load middleware
 app.use(morgan('dev')) // logging util
-app.use(cors())        // enable crosite origin resoruce scripting
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true,
+}))        // enable crosite origin resoruce scripting
 
 //    * load routes
+app.use(require('../src/auth/router.js'))
 app.use(require('../route/list-router.js'))
 app.use(require('../route/task-router.js'))
+
 
 // add 404 route
 app.all('/api/*', (req, res, next) => res.sendStatus(404))
