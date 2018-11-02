@@ -28,8 +28,9 @@ export const listUpdate = (list) => ({
 
 
 //ASYNC ACTIONS:
-export const listCreateRequest = list => dispatch => {
+export const listCreateRequest = (list) => dispatch => {
   return superagent.post(`${__API_URL__}/api/lists`)
+    // .auth(user.username, user.password)
     .send(list)
     .then(res => {
       //console.log(res.body);

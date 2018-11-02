@@ -15,11 +15,12 @@ export const tokenDelete = () => {
 
 
 export const signupRequest = user => dispatch => {
-  return superagent.post(`$__API_URL__}/signup`)
+  return superagent.post(`${__API_URL__}/signup`)
     .send(user)
     .withCredentials()
     .then(res => {
       dispatch(tokenSet(res.text));
+      console.log(res.text)
       localStorage.setItem('token', res.text);
       return res;
     })
