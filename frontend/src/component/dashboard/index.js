@@ -18,23 +18,28 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        <h2> Dashboard </h2>
-        <ListForm
-          buttonText='create list'
-          onComplete={this.props.listCreate}
-        />
-        <ul>
-          {this.props.lists.map(list =>
-            <li key={list._id}>
-              <ListItem
-                title={list.title}
-                listDelete={this.props.listDelete}
-                list={list}
-                listUpdate={this.props.listUpdate}
-              ></ListItem>
-            </li>
-          )}
-        </ul>
+        <h2> User Dashboard </h2>
+        <div className='list'>
+          <h3> Add A Task: </h3>
+
+          <ListForm
+            buttonText='create list'
+            onComplete={this.props.listCreate}
+          />
+
+          <ul>
+            {this.props.lists.map(list =>
+              <li key={list._id}>
+                <ListItem
+                  title={list.title}
+                  listDelete={this.props.listDelete}
+                  list={list}
+                  listUpdate={this.props.listUpdate}
+                ></ListItem>
+              </li>
+            )}
+          </ul>
+        </div>
 
       </div>
     )
