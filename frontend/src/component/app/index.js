@@ -23,6 +23,7 @@ class App extends React.Component {
                     <li><Link to='/welcome/signup'> Signup</Link></li>
                     <li><Link to='/welcome/login'> Login</Link></li>
                     <li><Link to='/todo'> Dashboard</Link></li>
+                    <li><Link to='/settings'> Settings </Link></li>
 
                   </ul>
                 </nav>
@@ -32,6 +33,8 @@ class App extends React.Component {
                 <Route exact path='/welcome/:auth' component={Landing} />
                 <Route exact path='/todo' component={Dashboard} />
                 <Route exact path="/settings" component={SettingsContainer} />
+
+
               </main>
             </div>
           </BrowserRouter>

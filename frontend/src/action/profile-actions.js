@@ -14,7 +14,7 @@ export const profileCreate = profile => ({
 
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
-  return superagent.get(`${__API_URL__}/profiles/${localStorage.user.Id}`)
+  return superagent.get(`${__API_URL__}/profiles/${localStorage.userId}`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
       dispatch(profileSet(res.body));
