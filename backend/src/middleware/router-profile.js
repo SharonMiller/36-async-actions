@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import createError from 'http-errors'
 import parserBody from './parser-body.js'
-import Profile from '../model/profile.js'
+import Profile from '../../model/photo'
 import { bearerAuth } from './parser-auth.js'
 
 export default new Router()
