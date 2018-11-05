@@ -37,3 +37,11 @@ export const loginRequest = user => dispatch => {
       return res;
     });
 };
+
+export const tokenDeleteRequest = () => dispatch => {
+  return new Promise((resolve, reject) => {
+    utils.clearLocalStorageToken()
+    utils.cookieDelete('X-Sluggram-Token')
+    resolve(dispatch(tokenDelete()))
+  })
+}

@@ -1,0 +1,28 @@
+
+@import '../../style/vars.scss';
+
+#list-form {
+  background-color: $secondary;
+  margin: 30px;
+  border: solid;
+  border-width: 1px;
+  border-radius: $border-radius;
+  text-align: left;
+  font-family: $font-primary;
+
+  label {
+    margin-right: 20px;
+  }
+  
+  input {
+    display: inline;
+    margin-left: 20px;
+    background-color: $white;
+    padding: 2em;
+  }
+
+  button {
+  margin: auto; 
+  }
+
+}

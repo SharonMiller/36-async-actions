@@ -2,6 +2,8 @@
 
 import React from 'react'
 import * as util from '../../lib/util.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 class ListForm extends React.Component {
   constructor(props) {
@@ -34,7 +36,7 @@ class ListForm extends React.Component {
 
   render() {
     return (
-      <form
+      <form id="item-form"
         onSubmit={this.handleSubmit}
         className={util.classToggler({
           'list-form': true,
@@ -50,7 +52,7 @@ class ListForm extends React.Component {
 
         />
 
-        <button type='submit'> {this.props.buttonText} </button>
+        <button type='submit'><FontAwesomeIcon icon={faPlusSquare} /></button>
       </form>
     )
   }

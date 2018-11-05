@@ -2,6 +2,10 @@
 
 import React from 'react';
 import ListForm from '../listform/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'react-bootstrap';
+
 
 class ListItem extends React.Component {
   constructor(props) {
@@ -35,9 +39,10 @@ class ListItem extends React.Component {
         <div>
           {!this.state.listEdit ?
             <div>
-              <h2>{this.props.title}</h2>
-              <button onClick={this.handleDelete}>DELETE</button>
-              <button onClick={this.toggleListEdit}>EDIT</button>
+              <h3>{this.props.title}</h3>
+              <button onClick={this.handleDelete} ><FontAwesomeIcon icon={faTrash} />
+              </button>
+              <button onClick={this.toggleListEdit} ><FontAwesomeIcon icon={faEdit} /></button>
 
             </div> :
             <ListForm
