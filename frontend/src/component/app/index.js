@@ -7,6 +7,13 @@ import appStoreCreate from '../../lib/app-store-create.js'
 import Dashboard from '../dashboard';
 import Landing from '../landing';
 import SettingsContainer from '../settings-container/index'
+import Navigation from '../navbar'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+import Slider from '../slider'
+
+library.add(faStroopwafel)
 
 const store = appStoreCreate()
 
@@ -17,23 +24,23 @@ class App extends React.Component {
         <Provider store={store}>
           <BrowserRouter>
             <div>
-              <header> <h1>Welcome!</h1>
-                <nav>
-                  <ul>
+              <header>
+                <Navigation id="nav-content" />
+                {/* <ul>
                     <li><Link to='/welcome/signup'> Signup</Link></li>
                     <li><Link to='/welcome/login'> Login</Link></li>
                     <li><Link to='/todo'> Dashboard</Link></li>
                     <li><Link to='/settings'> Settings </Link></li>
 
-                  </ul>
-                </nav>
+                  </ul> */}
+
               </header>
 
-              <main>
+              <main id='main-container'>
                 <Route exact path='/welcome/:auth' component={Landing} />
                 <Route exact path='/todo' component={Dashboard} />
                 <Route exact path="/settings" component={SettingsContainer} />
-
+                <Slider />
 
               </main>
             </div>

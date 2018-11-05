@@ -1,0 +1,12 @@
+@import "./_reset.scss";
+@import "./vars.scss";
+@import "./_base.scss";
+@import "../component//navbar/nav.scss";
+@import "../component/dashboard/dashboard.scss";
+@import "../component/listform/listform.scss";
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+// @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js");
+// @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
+

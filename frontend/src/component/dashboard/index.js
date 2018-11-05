@@ -18,9 +18,8 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className='dashboard'>
-        <h2> User Dashboard </h2>
         <div className='list'>
-          <h3> Add A Task: </h3>
+          <h2> Add A Task: </h2>
 
           <ListForm
             buttonText='create list'
