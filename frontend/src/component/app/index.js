@@ -26,22 +26,14 @@ class App extends React.Component {
             <div>
               <header>
                 <Navigation id="nav-content" />
-                {/* <ul>
-                    <li><Link to='/welcome/signup'> Signup</Link></li>
-                    <li><Link to='/welcome/login'> Login</Link></li>
-                    <li><Link to='/todo'> Dashboard</Link></li>
-                    <li><Link to='/settings'> Settings </Link></li>
-
-                  </ul> */}
-
               </header>
 
               <main id='main-container'>
+
                 <Route exact path='/welcome/:auth' component={Landing} />
                 <Route exact path='/todo' component={Dashboard} />
-                <Route exact path="/settings" component={SettingsContainer} />
+                <Route exact path="/profiles" component={SettingsContainer} />
                 <Slider />
-
               </main>
             </div>
           </BrowserRouter>

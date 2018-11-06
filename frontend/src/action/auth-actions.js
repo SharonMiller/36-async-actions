@@ -34,6 +34,7 @@ export const loginRequest = user => dispatch => {
     .then(res => {
       dispatch(tokenSet(res.text));
       localStorage.setItem('token', res.text);
+      localStorage.setItem('userId')
       return res;
     });
 };
