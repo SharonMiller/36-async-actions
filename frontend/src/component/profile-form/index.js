@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import * as util from '../../lib/util.js'
+import * as utils from '../../lib/util.js'
 
 class ProfileForm extends React.Component {
   constructor(props) {

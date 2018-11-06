@@ -1,5 +1,7 @@
 import React from 'react';
 // import * as assets from '../../assets'
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 
@@ -16,10 +18,28 @@ class Navigation extends React.Component {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 
           <div className="navbar-nav">
-            <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
+            <Navbar>
+              <Nav>
+                <LinkContainer to="/welcome/signup">
+                  <NavItem>Signup</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/welcome/login">
+                  <NavItem>Login</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/profiles">
+                  <NavItem>Profile</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/todo">
+                  <NavItem>Dashboard</NavItem>
+                </LinkContainer>
+              </Nav>
+            </Navbar>
+
+
+            {/* <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
             <a className="nav-item nav-link" href="/todo">Dashboard</a>
             <a className="nav-item nav-link" href="/welcome/signup">Register</a>
-            <a className="nav-item nav-link" href="welcome/login">Login</a>
+            <a className="nav-item nav-link" href="welcome/login">Login</a> */}
           </div>
 
         </div>
